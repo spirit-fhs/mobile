@@ -1,0 +1,46 @@
+SpiritMobile grants an easy access to the services of Spirit, which is an information system project from the Faculty of 
+Computer Science of the University of Applied Sciences Schmalkalden.
+
+http://pads.fh-schmalkalden.de/spirit.html
+
+It is developed with Scala 2.9.0 (except of one file).
+
+http://www.scala-lang.org
+
+Features for All:
+* Show News
+
+Additional Features for role 'student' (including features of All):
+* Write comments for news
+
+Additional features for role 'professor' (including features of 'student')
+* Write news
+
+* Using GSON https://github.com/codahale/jerkson for JSON parsing. Create a 'bin'-directory in your project-directory and copy gson-1.7.1.jar into it.
+
+Hints:
+* Show TimeTable is planned, but not implemented yet.
+
+* Delete own news/comments not fully implemented yet.
+
+* Working SBT 0.7.7 installation is needed http://code.google.com/p/simple-build-tool/.
+
+* It's based on the android-plugin for SBT https://github.com/jberkel/android-plugin.
+
+* Not fully working yet...
+
+Getting Started:
+
+Clone this repository.
+
+Execute:
+$ sbt update package-debug 
+
+then run Android emulator and execute:
+$ sbt reinstall-emulator
+
+and start the app on your emulator.
+
+Running
+$ sbt test
+should NOT pass, cause there are no tests yet :P
