@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
@@ -25,24 +24,19 @@
                   android:id="@+id/tvMessage"/>
         <EditText android:layout_width="fill_parent" android:inputType="textMultiLine"
                   android:layout_height="wrap_content"
+                  android:minLines="5"
                   android:layout_below="@+id/tvMessage" android:layout_alignLeft="@+id/tvMessage"
                   android:layout_alignRight="@+id/tvMessage" android:id="@+id/editMessage" android:gravity="top"
                   android:layout_above="@+id/degreeText"/>
-<!--        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                        android:id="@+id/degreeLine" android:layout_above="@+id/datePexpire"
-                        ">-->
-            <TextView android:text="Betrifft:" android:layout_height="wrap_content"
-                      android:layout_width="fill_parent"
-                      android:id="@+id/degreeText"
-                      android:layout_above="@+id/datePexpiredegreeText" android:background="@drawable/newsbackgroundsmall2"/>
-<!--            <Button android:id="@+id/degreeButton" android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" android:text="ändern"
-                    android:layout_alignParentRight="true"/>
-        </RelativeLayout>-->
+        <TextView android:text="Betrifft:" android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:id="@+id/degreeText"
+                  android:layout_above="@+id/datePexpiredegreeText"
+                  android:background="@drawable/newsbackgroundsmall2"/>
         <TextView android:text="Gültig bis: " android:layout_height="wrap_content"
-                      android:layout_width="fill_parent"
-                      android:id="@+id/datePexpiredegreeText"  android:layout_alignParentBottom="true"
-                       android:background="@drawable/newsbackgroundsmall2"/>
+                  android:layout_width="fill_parent"
+                  android:id="@+id/datePexpiredegreeText" android:layout_alignParentBottom="true"
+                  android:background="@drawable/newsbackgroundsmall2"/>
     </RelativeLayout>
     <Button android:id="@+id/createButton" android:layout_height="wrap_content" android:layout_width="fill_parent"
             android:text="Senden"

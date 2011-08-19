@@ -1,12 +1,11 @@
-package de.fhs.spirit.tasks;
+package org.unsane.spirit.tasks;
 
 import android.os.AsyncTask;
 
-/**
- * Author: Illaz
- * Date: 13.07.11
- * Time: 15:49
- */
+/** Without this it's not possbile to use AsyncTask in Scala
+   *
+   * @author Sebastian Stallenberger
+   */
 
 public abstract class AsyncTaskAdapter<T1, T2, T3> extends AsyncTask<T1, T2, T3> {
     protected T3 doInBackground(T1... param) {

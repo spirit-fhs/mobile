@@ -33,7 +33,8 @@
                 android:key="standalone"/>
         <CheckBoxPreference
                 android:title="Logging"
-                android:defaultValue="true"
+                android:defaultValue="false"
+                android:enabled="false"
                 android:summary="Hilf den Entwicklern durch Senden von anonymen Daten, SpiritMobile noch besser zu machen."
                 android:key="logging"/>
     </PreferenceCategory>

@@ -27,7 +27,11 @@ Hints:
 
 * It's based on the android-plugin for SBT https://github.com/jberkel/android-plugin.
 
+* Comments are also not complete yet.
+
 * Not fully working yet...
+
+* Im not a good Scala developer... So if you find bugs or things I could improve, plz tell me :)
 
 Getting Started:
 

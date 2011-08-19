@@ -1,9 +1,9 @@
-<manifest package="de.fhs.spirit.tests" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="org.unsane.spirit.tests" xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="7"></uses-sdk>
     <application>
         <uses-library android:name="android.test.runner"></uses-library>
     </application>
     <instrumentation 
-    android:targetPackage="de.fhs.spirit" android:name="android.test.InstrumentationTestRunner" android:label="Tests">
+    android:targetPackage="org.unsane.spirit" android:name="android.test.InstrumentationTestRunner" android:label="Tests">
 </instrumentation>
 </manifest>

@@ -1,4 +1,4 @@
-import de.fhs.spirit
+import org.unsane.spirit
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.Spec
 
