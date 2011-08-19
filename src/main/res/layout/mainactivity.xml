@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:background="@drawable/background">
+    <ImageView android:src="@drawable/logo_spirit_transp" android:id="@+id/menulogo"
+               android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:adjustViewBounds="true" android:paddingTop="20px" android:paddingBottom="20px"/>
+    <GridView android:id="@+id/grid" android:numColumns="2"
+              android:horizontalSpacing="20dip" android:verticalSpacing="20dip"
+              android:stretchMode="columnWidth" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    </GridView>
+</TableLayout>

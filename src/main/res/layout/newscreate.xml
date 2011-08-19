@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+                    android:background="@drawable/newsbackgroundsmall2"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/createButton"
+                    android:layout_marginBottom="5dip" android:layout_marginTop="5dip"
+                    android:layout_marginLeft="2dip" android:layout_marginRight="2dip">
+        <TextView android:text="Betreff:"
+                  android:layout_height="wrap_content" android:layout_alignParentTop="true"
+                  android:layout_width="fill_parent" android:layout_centerHorizontal="true"
+                  android:id="@+id/tvSubject"/>
+        <EditText android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/tvSubject" android:layout_alignLeft="@+id/tvSubject"
+                  android:layout_alignRight="@+id/tvSubject" android:id="@+id/editSubject"/>
+        <TextView android:text="Nachricht:" android:layout_height="wrap_content" android:layout_width="fill_parent"
+                  android:layout_centerHorizontal="true"
+                  android:layout_below="@+id/editSubject"
+                  android:layout_alignLeft="@+id/editSubject" android:layout_alignRight="@+id/editSubject"
+                  android:id="@+id/tvMessage"/>
+        <EditText android:layout_width="fill_parent" android:inputType="textMultiLine"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/tvMessage" android:layout_alignLeft="@+id/tvMessage"
+                  android:layout_alignRight="@+id/tvMessage" android:id="@+id/editMessage" android:gravity="top"
+                  android:layout_above="@+id/degreeText"/>
+<!--        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:id="@+id/degreeLine" android:layout_above="@+id/datePexpire"
+                        ">-->
+            <TextView android:text="Betrifft:" android:layout_height="wrap_content"
+                      android:layout_width="fill_parent"
+                      android:id="@+id/degreeText"
+                      android:layout_above="@+id/datePexpiredegreeText" android:background="@drawable/newsbackgroundsmall2"/>
+<!--            <Button android:id="@+id/degreeButton" android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" android:text="ändern"
+                    android:layout_alignParentRight="true"/>
+        </RelativeLayout>-->
+        <TextView android:text="Gültig bis: " android:layout_height="wrap_content"
+                      android:layout_width="fill_parent"
+                      android:id="@+id/datePexpiredegreeText"  android:layout_alignParentBottom="true"
+                       android:background="@drawable/newsbackgroundsmall2"/>
+    </RelativeLayout>
+    <Button android:id="@+id/createButton" android:layout_height="wrap_content" android:layout_width="fill_parent"
+            android:text="Senden"
+            android:layout_alignParentBottom="true"/>
+</RelativeLayout>

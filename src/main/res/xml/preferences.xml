@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+    <PreferenceCategory
+            android:title="Login">
+        <EditTextPreference
+                android:name="FhsId"
+                android:summary="Gib hier deine FhsId an."
+                android:defaultValue=""
+                android:title="FhsId"
+                android:key="editFhsId" />
+        <EditTextPreference
+                android:name="Passwort"
+                android:summary="Gib hier dein Passwort an."
+                android:defaultValue=""
+                android:title="Passwort"
+                android:key="editPassword"
+                android:password="true"/>
+        <CheckBoxPreference
+                android:key="loggedIn"
+                android:title="Eingeloggt?"
+                android:enabled="false"
+                android:defaultValue="false"
+                android:clickable="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="News"></PreferenceCategory>
+    <PreferenceCategory android:title="Stundenplan"></PreferenceCategory>
+    <PreferenceCategory android:title="Debugging">
+        <CheckBoxPreference
+                android:title="Standalone Mode"
+                android:defaultValue="true"
+                android:summary="Zum Testen der Anwendung mit fiktiven Daten aus der lokalen Datenbank."
+                android:key="standalone"/>
+        <CheckBoxPreference
+                android:title="Logging"
+                android:defaultValue="true"
+                android:summary="Hilf den Entwicklern durch Senden von anonymen Daten, SpiritMobile noch besser zu machen."
+                android:key="logging"/>
+    </PreferenceCategory>
+</PreferenceScreen>

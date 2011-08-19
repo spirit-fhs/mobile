@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/userdata"
+          android:icon="@drawable/optmenuuser_l"
+          android:title="Einstellungen" />
+    <item android:id="@+id/help"
+          android:icon="@drawable/optmenuhelp_l"
+          android:title="Hilfe" />
+</menu>

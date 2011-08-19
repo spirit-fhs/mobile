@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/newsScroll" android:layout_height="wrap_content" android:layout_width="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:id="@+id/newsMain" xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="vertical">
+        <TextView android:id="@+id/lastNewsDate"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:lines="1"
+                  android:minHeight="20dip"
+                  android:textStyle="italic"
+                  android:text="Keine Daten vorhanden"
+                  android:gravity="center_vertical|center_horizontal"
+                  android:background="@drawable/newsbackgroundsmall2"/>
+        <FrameLayout android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:minHeight="10dip"/>
+        <!-- Margin :P -->
+        <!--Generated content in NewsMulti.scala-->
+    </LinearLayout>
+</ScrollView>

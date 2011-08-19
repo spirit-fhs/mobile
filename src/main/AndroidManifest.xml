@@ -1,0 +1,19 @@
+<manifest package="de.fhs.spirit" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="7"></uses-sdk>
+    <application android:debuggable="false" android:label="@string/app_name" android:icon="@drawable/logo_spirit_v03_hdpi" android:theme="@android:style/Theme.Light.NoTitleBar">
+        <activity android:label="@string/app_name" android:name=".activities.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name=".activities.NewsSingle" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".activities.NewsMulti" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".activities.NewsCreate" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".activities.Settings" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".activities.Info" android:screenOrientation="portrait"/>
+        <!--<service android:name=".SpiritService"/>-->
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
