@@ -16,7 +16,7 @@ Additional Features for role 'student' (including features of All):
 Additional features for role 'professor' (including features of 'student')
 * Write news
 
-* Using GSON https://github.com/codahale/jerkson for JSON parsing. Create a 'bin'-directory in your project-directory and copy gson-1.7.1.jar into it.
+* Using GSON https://code.google.com/p/google-gson/ for JSON parsing. Create a 'bin'-directory in your project-directory and copy gson-1.7.1.jar into it.
 
 Hints:
 * Show TimeTable is planned, but not implemented yet.
