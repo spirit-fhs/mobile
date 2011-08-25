@@ -4,37 +4,37 @@
     <string name="app_name">SpiritMobile</string>
     <string name="trialPassphrase">masterthesis</string>
     <!--News-->
-    <string name="string_lastNewsFetch">Letzer Abruf:\u0020</string>
-    <string name="string_regardingDegrees">Betrifft:\u0020</string>
-    <string name="string_commentsCount">Kommentare:\u0020</string>
-    <string name="string_newComment">Neuer Kommentar...</string>
-    <string name="string_sendComment">Kommentar senden</string>
-    <string name="string_oclock">\u0020Uhr</string>
-    <string name="string_commess_must">Der Kommentar darf nicht leer sein.</string>
+    <string name="string_lastNewsFetch">Last update:\u0020</string>
+    <string name="string_regardingDegrees">Regarding:\u0020</string>
+    <string name="string_commentsCount">Comments:\u0020</string>
+    <string name="string_newComment">New comment...</string>
+    <string name="string_sendComment">Send comment</string>
+    <string name="string_oclock">\u0020o\'clock</string>
+    <string name="string_commess_must">Comment may not be empty.</string>
 
     <!--MainMenu-->
-    <string name="menu_news">Neues</string>
-    <string name="menu_createNews">Neues verfassen</string>
-    <string name="menu_timetable">Stundenplan</string>
+    <string name="menu_news">News</string>
+    <string name="menu_createNews">Create news</string>
+    <string name="menu_timetable">Timetable</string>
 
     <!--NewsCreate-->
-    <string name="string_send_as">Senden (als\u0020</string>
-    <string name="string_subjMess_must">Betreff und Nachricht sind Pflichtfelder.</string>
-    <string name="string_valid_till">Gültig bis:\u0020</string>
-    <string name="string_all">Alle</string>
-    <string name="string_group">Gruppe</string>
+    <string name="string_send_as">Send (as\u0020</string>
+    <string name="string_subjMess_must">Subject and message may not be empty.</string>
+    <string name="string_valid_till">Relevant till:\u0020</string>
+    <string name="string_all">All</string>
+    <string name="string_group">Group</string>
 
     <!--Settings-->
-    <string name="string_notSetYet">Nicht gesetzt.</string>
-    <string name="string_notLoggedIn">Nicht eingeloggt.</string>
-    <string name="string_loggedInAs">Eingeloggt als\u0020</string>
-    <string name="string_enterUnAndPass">Für Login FhsId und Passwort angeben.</string>
+    <string name="string_notSetYet">Not set.</string>
+    <string name="string_notLoggedIn">Not logged in.</string>
+    <string name="string_loggedInAs">Logged in as\u0020</string>
+    <string name="string_enterUnAndPass">For login set FhsId and Passwort.</string>
 
 
     <!--ERRORS_______________________________________________________________________________________________________-->
-    <string name="err_noInternet">Keine Internetverbindung vorhanden.</string>
-    <string name="err_erroroccured">Ein Fehler ist aufgetreten.</string>
-    <string name="err_notImplementedYet">Sorry...Noch nicht implementiert ;)</string>
+    <string name="err_noInternet">No internet connection.</string>
+    <string name="err_erroroccured">An error occurred.</string>
+    <string name="err_notImplementedYet">Sorry...Not implemented yet ;)</string>
 
     <!--COLOR________________________________________________________________________________________________________-->
     <color name="SpiritLightBlue">#ffe2eaef</color>

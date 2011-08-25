@@ -1,3 +1,41 @@
 <resources>
-    <string name="app_name">SpiritMobile</string>
+    <!--STRINGS______________________________________________________________________________________________________-->
+    <!--News-->
+    <string name="string_lastNewsFetch">Letzer Abruf:\u0020</string>
+    <string name="string_regardingDegrees">Betrifft:\u0020</string>
+    <string name="string_commentsCount">Kommentare:\u0020</string>
+    <string name="string_newComment">Neuer Kommentar...</string>
+    <string name="string_sendComment">Kommentar senden</string>
+    <string name="string_oclock">\u0020Uhr</string>
+    <string name="string_commess_must">Der Kommentar darf nicht leer sein.</string>
+
+    <!--MainMenu-->
+    <string name="menu_news">Neues</string>
+    <string name="menu_createNews">Neues verfassen</string>
+    <string name="menu_timetable">Stundenplan</string>
+
+    <!--NewsCreate-->
+    <string name="string_send_as">Senden (als\u0020</string>
+    <string name="string_subjMess_must">Betreff und Nachricht sind Pflichtfelder.</string>
+    <string name="string_valid_till">Gültig bis:\u0020</string>
+    <string name="string_all">Alle</string>
+    <string name="string_group">Gruppe</string>
+
+    <!--Settings-->
+    <string name="string_notSetYet">Nicht gesetzt.</string>
+    <string name="string_notLoggedIn">Nicht eingeloggt.</string>
+    <string name="string_loggedInAs">Eingeloggt als\u0020</string>
+    <string name="string_enterUnAndPass">Für Login FhsId und Passwort angeben.</string>
+
+
+    <!--ERRORS_______________________________________________________________________________________________________-->
+    <string name="err_noInternet">Keine Internetverbindung vorhanden.</string>
+    <string name="err_erroroccured">Ein Fehler ist aufgetreten.</string>
+    <string name="err_notImplementedYet">Sorry...Noch nicht implementiert ;)</string>
+
+    <!--COLOR________________________________________________________________________________________________________-->
+    <color name="SpiritLightBlue">#ffe2eaef</color>
+    <color name="SpiritDarkBlue">#ff034276</color>
+    <color name="SpiritWhite">#ffffff</color>
+
 </resources>
