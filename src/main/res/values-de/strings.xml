@@ -1,5 +1,8 @@
 <resources>
     <!--STRINGS______________________________________________________________________________________________________-->
+    <!--General-->
+    <string name="string_pleasewait">Bitte warten</string>
+    <string name="string_newsupdated">Neues wird aktualisiert.</string>
     <!--News-->
     <string name="string_lastNewsFetch">Letzer Abruf:\u0020</string>
     <string name="string_regardingDegrees">Betrifft:\u0020</string>

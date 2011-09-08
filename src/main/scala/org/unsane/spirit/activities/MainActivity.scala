@@ -48,7 +48,7 @@ class MainActivity extends Activity {
    */
   override def onResume() {
     super.onResume()
-    if (SpiritHelpers.getStringPrefs(MainActivity.this, "trialPassphrase", false) == getString(R.string.trialPassphrase)) {
+    if (SpiritHelpers.getStringPrefs(MainActivity.this, "trialPassphrase", false).equals(getString(R.string.trialPassphrase))) {
       buildMenu
     }
   }
@@ -60,23 +60,20 @@ class MainActivity extends Activity {
   def buildMenu() {
     val role = SpiritHelpers.getStringPrefs(MainActivity.this, "role", false)
 
-    val dataArr = role match {
+    val dataList = role match {
       case "professor" =>
-        Log.d("BUILDMENUFOR", "professor")
         List(new MenuEntry(R.drawable.menu_news_bs, getString(R.string.menu_news), "readNews", true),
           new MenuEntry(R.drawable.menu_writenews_bs, getString(R.string.menu_createNews), "writeNews", true),
           new MenuEntry(R.drawable.menu_timetable_bs, getString(R.string.menu_timetable), "timeTable", false))
       case "student" =>
-        Log.d("BUILDMENUFOR", "student")
         List(new MenuEntry(R.drawable.menu_news_bs, getString(R.string.menu_news), "readNews", true),
           new MenuEntry(R.drawable.menu_timetable_bs, getString(R.string.menu_timetable), "timeTable", false))
       case _ =>
-        Log.d("BUILDMENUFOR", "everyoneelse")
         List(new MenuEntry(R.drawable.menu_news_bs, getString(R.string.menu_news), "readNews", true))
     }
 
     val grid = findViewById(R.id.grid).asInstanceOf[GridView]
-    grid.setAdapter(new MainMenuAdapter(MainActivity.this, dataArr))
+    grid.setAdapter(new MainMenuAdapter(MainActivity.this, dataList))
 
     grid.setOnItemClickListener(
       new OnItemClickListener {
@@ -99,7 +96,6 @@ class MainActivity extends Activity {
    * @author Sebastian Stallenberger
    */
   class MainMenuAdapter(context: Context, menuItems: List[MenuEntry]) extends BaseAdapter {
-
     override def getCount: Int = {
       menuItems.size
     }

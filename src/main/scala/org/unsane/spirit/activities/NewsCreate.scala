@@ -27,50 +27,32 @@ class NewsCreate extends Activity {
   var selArrForDialog = new Array[Boolean](0)
   var degreeDropDownArr = new Array[CharSequence](0)
 
-  //Get current date
-  val c: Calendar = Calendar.getInstance()
-  val nowYear = c.get(Calendar.YEAR)
-  val nowMonth = c.get(Calendar.MONTH)
-  val nextMonth = nowMonth + 1
-  val nowDay = c.get(Calendar.DAY_OF_MONTH)
-
-
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.newscreate)
 
-    //--------------------------------------------------------------------------------------------------------------------------------------------------
     val degreeJsonString = SpiritHelpers.loadString(NewsCreate.this, "degreeJsonString")
     val getAllDegreesObject = JsonProcessor.jsonStringToDegreeList(degreeJsonString).asInstanceOf[List[DegreeClassExt]]
-
 
     val degreeMap = SpiritHelpers.getDegreeMap(NewsCreate.this, getAllDegreesObject, "")
     degreeDropDownArr = SpiritHelpers.getDegreeTitleArr(degreeMap)
     selArrForDialog = new Array[Boolean](degreeDropDownArr.length)
 
     val selectedDegreesString = SpiritHelpers.getStringPrefs(NewsCreate.this, "selectedCreationDegrees", false)
-    findViewById(R.id.degreeText).asInstanceOf[TextView].setText(getString(R.string.string_regardingDegrees) + selectedDegreesString.replace("<;>", ", "))
-
-    var i = 0
-    getAllDegreesObject.foreach(
-      element => {
-        val degreeClassExt = element.asInstanceOf[DegreeClassExt]
-        if (selectedDegreesString.contains(degreeClassExt.title)) {
-          selArrForDialog(i) = true
-        } else {
-          selArrForDialog(i) = false
-        }
-        i = i + 1
-      }
-    )
-
     if (selectedDegreesString.equals("N/A")) {
-      //if selection is not set yet
       SpiritHelpers.setPrefs(NewsCreate.this, "selectedCreationDegrees", "AllClasses", false)
     }
 
+    val selectedDegreesDiffArr = selectedDegreesString.split("<;>")
 
-    //--------------------------------------------------------------------------------------------------------------------------------------------------
+    for (i <- 0 until degreeDropDownArr.length) {
+      val degreeClass = degreeDropDownArr(i)
+      if (selectedDegreesDiffArr.contains(degreeClass)) {
+        selArrForDialog(i) = true
+      } else {
+        selArrForDialog(i) = false
+      }
+    }
 
     val degreeTv = findViewById(R.id.degreeText).asInstanceOf[TextView]
     degreeTv.setOnClickListener(new OnClickListener {
@@ -99,12 +81,7 @@ class NewsCreate extends Activity {
         fhsId = SpiritHelpers.getStringPrefs(NewsCreate.this, "editFhsId", false)
         expireDate = SpiritHelpers.getStringPrefs(NewsCreate.this, "createNewsExpireDate", false)
         degreeclass = SpiritHelpers.getStringPrefs(NewsCreate.this, "selectedCreationDegrees", false)
-        Log.d("SUBJECT", subject.toString)
-        Log.d("MESSAGE", message.toString)
-        Log.d("EXPIREDATE", expireDate.toString)
-        Log.d("DEGREECLASS", degreeclass.toString)
-        Log.d("DEGREECLASSIDS", translateDegreeNameToId(degreeclass, degreeMap).toString)
-        Log.d("OWNER", fhsId.toString)
+
         if (subject.toString.equals("") || message.toString.equals("")) {
           Toast.makeText(NewsCreate.this, R.string.string_subjMess_must, Toast.LENGTH_SHORT).show()
         } else {
@@ -117,6 +94,12 @@ class NewsCreate extends Activity {
   }
 
   override def onCreateDialog(id: Int): Dialog = {
+    val c: Calendar = Calendar.getInstance()
+    val nowYear = c.get(Calendar.YEAR)
+    val nowMonth = c.get(Calendar.MONTH)
+    val nextMonth = nowMonth + 1
+    val nowDay = c.get(Calendar.DAY_OF_MONTH)
+
     id match {
       case DEGREEDIALOGID =>
         new AlertDialog.Builder(this).setTitle(getString(R.string.string_regardingDegrees)).setMultiChoiceItems(
@@ -124,8 +107,6 @@ class NewsCreate extends Activity {
           selArrForDialog,
           new DialogInterface.OnMultiChoiceClickListener {
             def onClick(dialog: DialogInterface, clicked: Int, selected: Boolean): Unit = {
-              Log.i("ME", degreeDropDownArr(clicked) + " selected: " + selected)
-
               //TODO if parent element selected, deactivate child elements and vice versa
             }
           }).setPositiveButton(
@@ -151,8 +132,7 @@ class NewsCreate extends Activity {
       def onDateSet(view: DatePicker, year: Int,
                     monthOfYear: Int, dayOfMonth: Int) {
         val month = monthOfYear + 1 //starts at 0                       2011-08-10 12:00:00
-        SpiritHelpers.setPrefs(NewsCreate.this, "createNewsExpireDate", year.toString + "-" + fillStringWithNull(month.toString) + "-" + fillStringWithNull(dayOfMonth.toString)+" 00:00:01", false)
-        //SpiritHelpers.setPrefs(NewsCreate.this, "createNewsExpireDate", fillStringWithNull(dayOfMonth.toString) + "." + fillStringWithNull(month.toString) + "." + year.toString, false)
+        SpiritHelpers.setPrefs(NewsCreate.this, "createNewsExpireDate", year.toString + "-" + fillStringWithNull(month.toString) + "-" + fillStringWithNull(dayOfMonth.toString) + " 00:00:01", false)
         updateDisplay()
       }
     }
@@ -169,10 +149,9 @@ class NewsCreate extends Activity {
         i += 1
       }
       if (selectedDegreesString.equals("")) {
-        selectedDegreesString = getString(R.string.string_all)+"<;>"
+        selectedDegreesString = getString(R.string.string_all) + "<;>"
       }
       selectedDegreesString = selectedDegreesString.substring(0, selectedDegreesString.length() - 3)
-      Log.v("selectedCreationDegrees", selectedDegreesString)
       SpiritHelpers.setPrefs(NewsCreate.this, "selectedCreationDegrees", selectedDegreesString, false)
       updateDisplay()
     }
@@ -182,12 +161,11 @@ class NewsCreate extends Activity {
     val degreeString = SpiritHelpers.getStringPrefs(NewsCreate.this, "selectedCreationDegrees", false)
     val expdateString = SpiritHelpers.getStringPrefs(NewsCreate.this, "createNewsExpireDate", false)
 
-    NewsCreate.this.findViewById(R.id.degreeText).asInstanceOf[TextView].setText(Html.fromHtml("<b>"+getString(R.string.string_regardingDegrees)+"</b> ") + degreeString.replace("<;>", ", ")) //TODO Fat Font
-    NewsCreate.this.findViewById(R.id.datePexpiredegreeText).asInstanceOf[TextView].setText(Html.fromHtml("<b>"+getString(R.string.string_valid_till)+"</b>") + expdateString)
+    NewsCreate.this.findViewById(R.id.degreeText).asInstanceOf[TextView].setText(Html.fromHtml("<b>" + getString(R.string.string_regardingDegrees) + "</b> ") + degreeString.replace("<;>", ", ")) //TODO Fat Font
+    NewsCreate.this.findViewById(R.id.datePexpiredegreeText).asInstanceOf[TextView].setText(Html.fromHtml("<b>" + getString(R.string.string_valid_till) + "</b>") + expdateString.substring(0, 10))
   }
 
   def translateDegreeNameToId(degreeName: String, map: ListMap[String, Int]): String = {
-    Log.d("degreeNameArr", degreeName.toString())
     val degreeNameArr = degreeName.split("<;>")
     var returnString = ""
     for (singleDegreeName <- degreeNameArr) {
@@ -196,10 +174,7 @@ class NewsCreate extends Activity {
       } else {
         returnString = returnString + map.getOrElse(singleDegreeName, "").toString + "<;>"
       }
-
     }
-
-    Log.d("degreeNameArr", returnString.toString())
     returnString
   }
 
@@ -213,5 +188,3 @@ class NewsCreate extends Activity {
 
 
 }
-
-//TODO GANZE ACTIVITY REFAKTORISIEREN

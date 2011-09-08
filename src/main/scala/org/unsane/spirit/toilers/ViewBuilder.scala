@@ -30,58 +30,61 @@ object ViewBuilder {
    * @todo refactorize
    */
   def getTrialView(context: Context): RelativeLayout = {
+    val activity = context.asInstanceOf[Activity]
+
     val mainlay = new RelativeLayout(context) {
+      val id_logo =   2020201
+      val id_text =   2020202
+      val id_edit =   2020203
+      val id_button = 2020204
 
       val logo = new ImageView(context) {
         setImageDrawable(getResources.getDrawable(R.drawable.logo_spirit_transp))
         setAdjustViewBounds(true)
         setPadding(0, 20, 0, 30)
-        setId(2020201)
+        setId(id_logo)
       }
 
       val tv = new TextView(context) {
         setText("Beta Passphrase")
-        setId(2020202)
+        setId(id_text)
       }
 
       val edit = new EditText(context) {
         setMinimumWidth(200)
-        setId(2020203)
+        setId(id_edit)
       }
 
       val button = new Button(context) {
         setText("Unlock")
-        setId(2020204)
+        setId(id_button)
         setOnClickListener(new OnClickListener {
           def onClick(p1: View) {
-            SpiritHelpers.setPrefs(context.asInstanceOf[Activity], "trialPassphrase", edit.getText.toString, false)
-            Log.d("TRIALPASS", edit.getText.toString)
+            SpiritHelpers.setPrefs(activity, "trialPassphrase", edit.getText.toString, false)
 
-            var intent: Intent = context.asInstanceOf[Activity].getIntent
-            context.asInstanceOf[Activity].overridePendingTransition(0, 0)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            context.asInstanceOf[Activity].finish
-            context.asInstanceOf[Activity].overridePendingTransition(0, 0)
-            context.asInstanceOf[Activity].startActivity(intent)
+            var intent: Intent = activity.getIntent
+            activity.finish
+            activity.overridePendingTransition(0, 0)
+            activity.startActivity(intent)
           }
         })
       }
 
-      var lp_tv = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
-      lp_tv.addRule(RelativeLayout.BELOW, 2020201)
-      lp_tv.addRule(RelativeLayout.CENTER_HORIZONTAL)
-
-      var lp_edit = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
-      lp_edit.addRule(RelativeLayout.BELOW, 2020202)
-      lp_edit.addRule(RelativeLayout.CENTER_HORIZONTAL)
-
-      var lp_button = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
-      lp_button.addRule(RelativeLayout.BELOW, 2020203)
-      lp_button.addRule(RelativeLayout.CENTER_HORIZONTAL)
-
       var lp_iv = new RelativeLayout.LayoutParams(-2,-2).asInstanceOf[RelativeLayout.LayoutParams]
       lp_iv.addRule(RelativeLayout.CENTER_HORIZONTAL)
       lp_iv.addRule(RelativeLayout.ALIGN_PARENT_TOP)
+
+      var lp_tv = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
+      lp_tv.addRule(RelativeLayout.BELOW, id_logo)
+      lp_tv.addRule(RelativeLayout.CENTER_HORIZONTAL)
+
+      var lp_edit = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
+      lp_edit.addRule(RelativeLayout.BELOW, id_text)
+      lp_edit.addRule(RelativeLayout.CENTER_HORIZONTAL)
+
+      var lp_button = new RelativeLayout.LayoutParams(-2, -2).asInstanceOf[RelativeLayout.LayoutParams]
+      lp_button.addRule(RelativeLayout.BELOW, id_edit)
+      lp_button.addRule(RelativeLayout.CENTER_HORIZONTAL)
 
       addView(logo, lp_iv)
       addView(tv, lp_tv)
@@ -101,7 +104,7 @@ object ViewBuilder {
    */
   def buildNewsView(context: Context, news: News): RelativeLayout = {
     val activity = context.asInstanceOf[Activity]
-    val fill_parent = -1 //TODO Don't get them from context. Why?
+    val fill_parent = -1
     val wrap_content = -2
     val idbase = 19830615
     val id_title = idbase + 1
@@ -118,16 +121,9 @@ object ViewBuilder {
       var footerbackground = this.getResources.getDrawable(R.drawable.newsbackgroundheader)
       var newsbackgroundsmall2 = this.getResources.getDrawable(R.drawable.newsbackgroundsmall2)
 
-
-      Log.d("FHSID_PREF", SpiritHelpers.getStringPrefs(activity, "editFhsId", false))
-      Log.d("FHSID_OBJ", news.owner.fhs_id)
-
       if (SpiritHelpers.getStringPrefs(activity, "editFhsId", false).equals(news.owner.fhs_id)) {
         val filterColor = Color.rgb(199, 21, 133)
-        //degreeclassbackground.mutate().setColorFilter(filterColor, Mode.MULTIPLY)
         newsbackgroundheader.mutate().setColorFilter(filterColor, Mode.MULTIPLY)
-        //footerbackground.mutate().setColorFilter(filterColor, Mode.MULTIPLY)
-        //newsbackgroundsmall2.mutate().setColorFilter(filterColor, Mode.MULTIPLY)
       }
 
       val headerRelativeLayout = new RelativeLayout(context) {
@@ -262,7 +258,6 @@ object ViewBuilder {
           override def onClick(v: View) {
             val newsIntent = new Intent(context, classOf[NewsSingle])
             newsIntent.putExtra("singleNewsJson", news)
-            //newsIntent.putExtra("singleNews", "")
             activity.startActivityForResult(newsIntent, 198300)
           }
         })
@@ -583,19 +578,19 @@ object ViewBuilder {
 
   def constructNewsMultiMainLay(context: Context) {
     val activity = context.asInstanceOf[Activity]
-
     activity.setContentView(R.layout.newsmulti)
 
     val loadedJsonString = SpiritHelpers.loadString(activity, "newsJsonString")
     val newsList = JsonProcessor.jsonStringToNewsList(loadedJsonString).asInstanceOf[List[News]]
-    val lastNewsDateTV = activity.findViewById(R.id.lastNewsDate).asInstanceOf[TextView]
-    lastNewsDateTV.setText(activity.getString(R.string.string_lastNewsFetch) + SpiritHelpers.getStringPrefs(activity, "LastNewsDate", false))
     val newsMainLinLay = activity.findViewById(R.id.newsMain).asInstanceOf[LinearLayout]
+    val lastNewsDateTV = activity.findViewById(R.id.lastNewsDate).asInstanceOf[TextView]
+
+    lastNewsDateTV.setText(activity.getString(R.string.string_lastNewsFetch) +
+      SpiritHelpers.getStringPrefs(activity, "LastNewsDate", false))
     newsList.foreach(
       element => {
         newsMainLinLay.addView(ViewBuilder.buildNewsView(context, element.asInstanceOf[News]))
         newsMainLinLay.addView(new FrameLayout(context) {
-          //TODO padding in layout doesn't work yet. So that's a bypass for the problem...
           setMinimumHeight(12)
         })
       })

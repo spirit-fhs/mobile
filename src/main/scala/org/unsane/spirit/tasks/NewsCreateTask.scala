@@ -18,7 +18,6 @@ class NewsCreateTask(context: Context) extends AsyncTaskAdapter[Array[String], U
   var progressDialog: ProgressDialog = null
 
   protected def doInBackground(params: Array[String]): Boolean = {
-    Log.d("TESTAUSGEBE", params(0) + params(1) + params(2) + params(3) + params(4))
     return SpiritConnect.createNews(context, params(0), params(1), params(2), params(3), params(4))
   }
 

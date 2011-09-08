@@ -2,22 +2,11 @@ package org.unsane.spirit.activities
 
 import android.app.Activity
 import android.os.Bundle
-import android.graphics.Color
-import java.text.SimpleDateFormat
 import android.widget._
-import android.graphics.drawable.Drawable
-import android.view.View
-import scala.collection.JavaConversions._
 import org.unsane.spirit.R
-import org.unsane.spirit.tasks.NewsCommentCreateTask
-import android.util.Log
-import org.unsane.spirit.toilers.JsonProcessor.{News, DegreeClassExt, NewsComment}
-import android.widget.TextView._
-import org.unsane.spirit.toilers.{ViewBuilder, SpiritHelpers}
-import android.content.Intent
+import org.unsane.spirit.toilers.JsonProcessor.{News, NewsComment}
+import org.unsane.spirit.toilers.{ViewBuilder}
 import scala.collection.JavaConversions._
-
-//needed for JavaList to ScalaList conversion
 
 class NewsSingle extends Activity {
   var text: StringBuilder = new StringBuilder()
@@ -40,19 +29,11 @@ class NewsSingle extends Activity {
       setResult(Activity.RESULT_OK, intent)
 
       val newsMain = findViewById(R.id.newsSingleMain).asInstanceOf[LinearLayout]
-      newsMain.setOrientation(LinearLayout.VERTICAL) //Layout with one column{
+      newsMain.setOrientation(LinearLayout.VERTICAL)
       newsMain.addView(ViewBuilder.buildNewsViewSingle(NewsSingle.this, news))
+
       val commList = news.newsComment.toList.asInstanceOf[List[NewsComment]]
       newsMain.addView(ViewBuilder.buildCommentsView(NewsSingle.this, commList, news.news_id))
     }
   }
-
-  /*
-  override def onDestroy() {
-    super.onDestroy()
-    val intent = getIntent
-    intent.putExtra("load", true)
-    setResult(Activity.RESULT_OK, intent)
-    //finish()
-  }*/
 }

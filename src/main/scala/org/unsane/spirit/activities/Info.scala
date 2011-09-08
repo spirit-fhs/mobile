@@ -20,7 +20,7 @@ class Info extends Activity {
     webView.loadData(readTextFromResource(R.raw.info), "text/html", "UTF-8")
   }
 
-  /** Converts a raw resource to String
+  /**Converts a raw resource to String
    *
    * @author Sebastian Stallenberger
    * @param ressourceID The id of the text resource (e.g. R.string.example)

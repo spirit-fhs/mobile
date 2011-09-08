@@ -31,11 +31,5 @@
                 android:defaultValue="true"
                 android:summary="Zum Testen der Anwendung mit fiktiven Daten aus der lokalen Datenbank."
                 android:key="standalone"/>
-        <CheckBoxPreference
-                android:title="Logging"
-                android:defaultValue="false"
-                android:enabled="false"
-                android:summary="Hilf den Entwicklern durch Senden von anonymen Daten, SpiritMobile noch besser zu machen."
-                android:key="logging"/>
     </PreferenceCategory>
 </PreferenceScreen>

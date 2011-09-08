@@ -9,16 +9,15 @@ import org.unsane.spirit.tasks.VerifyLoginDataTask
 import org.unsane.spirit.toilers.SpiritHelpers
 import org.unsane.spirit.R
 
-/** Handles the Settings activity
-   *
-   * @author Sebastian Stallenberger
-   */
+/**Handles the Settings activity
+ *
+ * @author Sebastian Stallenberger
+ */
 class Settings extends PreferenceActivity with OnSharedPreferenceChangeListener {
 
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     addPreferencesFromResource(R.xml.preferences);
-    //TODO PreferenceActivity
 
     val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
     Log.d("ALLPREFERENCES", pref.getAll.toString)
@@ -98,9 +97,6 @@ class Settings extends PreferenceActivity with OnSharedPreferenceChangeListener 
           loggedIn.setSummary(getString(R.string.string_enterUnAndPass))
         }
       }
-
-
     }
   }
-
 }

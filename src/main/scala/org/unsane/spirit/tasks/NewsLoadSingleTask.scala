@@ -21,11 +21,14 @@ class NewsLoadSingleTask(context: Context) extends AsyncTaskAdapter[String, Unit
 
   override protected def onPostExecute(param: News) {
     progressDialog.dismiss
+
     val act = context.asInstanceOf[Activity]
     val intent = act.getIntent
+
     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
     intent.putExtra("newSingleNews", param)
     act.overridePendingTransition(0, 0)
+
     act.finish
     act.startActivity(intent)
   }

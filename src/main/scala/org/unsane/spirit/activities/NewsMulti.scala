@@ -3,16 +3,12 @@ package org.unsane.spirit.activities
 import android.app.Activity
 import android.os.{Bundle}
 import android.widget._
-import android.view.{MenuItem, MenuInflater, Menu, View}
+import android.view.{MenuItem, MenuInflater, Menu}
 import org.unsane.spirit.R
 import org.unsane.spirit.tasks.NewsReloadTask
-import org.unsane.spirit.toilers.JsonProcessor.{News}
-import android.util.Log
 import scala.collection.JavaConversions._
-import android.content.{Context, Intent}
+import android.content.{Intent}
 import org.unsane.spirit.toilers._
-
-//needed for JavaList to ScalaList conversion
 
 class NewsMulti extends Activity {
 
@@ -27,36 +23,9 @@ class NewsMulti extends Activity {
     }
   }
 
-
-  /* val extras: Bundle = getIntent.getExtras
- if (extras != null) {
-    if (extras.getBoolean("load")) {
-      new NewsReloadTask(NewsMulti.this).execute(null)
-    }
-  }*/
-
-  /* override def onResume() {
-    super.onResume()
-    if (SpiritConnect.checkInternetConnection(NewsMulti.this)) {
-      val extras: Bundle = getIntent.getExtras
-      if (extras != null) {
-        if (extras.getBoolean("load")) {
-          new NewsReloadTask(NewsMulti.this).execute(null)
-        }
-      }
-    } else {
-      Toast.makeText(NewsMulti.this, getString(R.string.err_noInternet), Toast.LENGTH_LONG).show()
-      ViewBuilder.constructNewsMultiMainLay(NewsMulti.this)
-    }
-  }*/
-
-
   override def onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
     super.onActivityResult(requestCode, resultCode, data)
-    Log.d("ONACTIVITYRESULT",data.toString)
-    Log.d("ONACTIVITYRESULT",data.getExtras.toString)
-    Log.d("ONACTIVITYRESULT",data.getExtras.getBoolean("load").toString)
-    Log.d("ONACTIVITYRESULT NEW NEWS",data.getExtras.containsKey("newSingleNews").toString)
+
     val extras = data.getExtras
 
     if (extras != null) {
@@ -81,7 +50,7 @@ class NewsMulti extends Activity {
     item.getItemId match {
       case R.id.reload =>
         if (SpiritConnect.checkInternetConnection(NewsMulti.this)) {
-          new NewsReloadTask(NewsMulti.this).execute(null) //TODO hier muss irgendetwas übergeben werden, sonst 2 Exceptions^^
+          new NewsReloadTask(NewsMulti.this).execute(null)
         } else {
           Toast.makeText(NewsMulti.this, getString(R.string.err_noInternet), Toast.LENGTH_LONG).show()
         }
@@ -100,5 +69,3 @@ class NewsMulti extends Activity {
     startActivity(intent)
   }
 }
-
-//TODO General: when turning the display while a refresh the app crashes...

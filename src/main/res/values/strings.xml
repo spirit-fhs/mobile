@@ -3,6 +3,8 @@
     <!--General-->
     <string name="app_name">SpiritMobile</string>
     <string name="trialPassphrase">masterthesis</string>
+    <string name="string_pleasewait">Please wait</string>
+    <string name="string_newsupdated">Update news.</string>
     <!--News-->
     <string name="string_lastNewsFetch">Last update:\u0020</string>
     <string name="string_regardingDegrees">Regarding:\u0020</string>

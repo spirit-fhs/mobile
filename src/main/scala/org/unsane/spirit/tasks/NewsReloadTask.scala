@@ -24,12 +24,6 @@ class NewsReloadTask(context: Context) extends AsyncTaskAdapter[Unit, Unit, Unit
   override protected def onPostExecute(param: Unit) {
     progressDialog.dismiss
     var activity = context.asInstanceOf[Activity]
-    /*var act: Activity = context.asInstanceOf[Activity]
-    var intent: Intent = act.getIntent
-    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-    act.overridePendingTransition(0, 0)
-    act.finish
-    act.startActivity(intent)*/
     activity.setContentView(R.layout.newsmulti)
     ViewBuilder.constructNewsMultiMainLay(context)
   }

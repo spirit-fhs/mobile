@@ -13,6 +13,7 @@ public final class R {
     public static final class color {
         public static final int SpiritDarkBlue=0x7f070001;
         /** COLOR________________________________________________________________________________________________________
+COLOR________________________________________________________________________________________________________
          */
         public static final int SpiritLightBlue=0x7f070000;
         public static final int SpiritWhite=0x7f070002;
@@ -70,40 +71,50 @@ public final class R {
 General
          */
         public static final int app_name=0x7f060002;
-        public static final int err_erroroccured=0x7f060018;
+        public static final int err_erroroccured=0x7f06001a;
         /** ERRORS_______________________________________________________________________________________________________
+ERRORS_______________________________________________________________________________________________________
          */
-        public static final int err_noInternet=0x7f060017;
-        public static final int err_notImplementedYet=0x7f060019;
+        public static final int err_noInternet=0x7f060019;
+        public static final int err_notImplementedYet=0x7f06001b;
         public static final int ipadress=0x7f060000;
-        public static final int menu_createNews=0x7f06000c;
+        public static final int menu_createNews=0x7f06000e;
         /** MainMenu
+MainMenu
          */
-        public static final int menu_news=0x7f06000b;
-        public static final int menu_timetable=0x7f06000d;
+        public static final int menu_news=0x7f06000d;
+        public static final int menu_timetable=0x7f06000f;
         public static final int port=0x7f060001;
-        public static final int string_all=0x7f060011;
-        public static final int string_commentsCount=0x7f060006;
-        public static final int string_commess_must=0x7f06000a;
-        public static final int string_enterUnAndPass=0x7f060016;
-        public static final int string_group=0x7f060012;
+        public static final int string_all=0x7f060013;
+        public static final int string_commentsCount=0x7f060008;
+        public static final int string_commess_must=0x7f06000c;
+        public static final int string_enterUnAndPass=0x7f060018;
+        public static final int string_group=0x7f060014;
         /** News
+News
          */
-        public static final int string_lastNewsFetch=0x7f060004;
-        public static final int string_loggedInAs=0x7f060015;
-        public static final int string_newComment=0x7f060007;
-        public static final int string_notLoggedIn=0x7f060014;
+        public static final int string_lastNewsFetch=0x7f060006;
+        public static final int string_loggedInAs=0x7f060017;
+        public static final int string_newComment=0x7f060009;
+        public static final int string_newsupdated=0x7f060005;
+        public static final int string_notLoggedIn=0x7f060016;
         /** Settings
+Settings
          */
-        public static final int string_notSetYet=0x7f060013;
-        public static final int string_oclock=0x7f060009;
-        public static final int string_regardingDegrees=0x7f060005;
-        public static final int string_sendComment=0x7f060008;
+        public static final int string_notSetYet=0x7f060015;
+        public static final int string_oclock=0x7f06000b;
+        /** STRINGS______________________________________________________________________________________________________
+General
+         */
+        public static final int string_pleasewait=0x7f060004;
+        public static final int string_regardingDegrees=0x7f060007;
+        public static final int string_sendComment=0x7f06000a;
         /** NewsCreate
+NewsCreate
          */
-        public static final int string_send_as=0x7f06000e;
-        public static final int string_subjMess_must=0x7f06000f;
-        public static final int string_valid_till=0x7f060010;
+        public static final int string_send_as=0x7f060010;
+        public static final int string_subjMess_must=0x7f060011;
+        public static final int string_valid_till=0x7f060012;
         public static final int trialPassphrase=0x7f060003;
     }
     public static final class xml {
